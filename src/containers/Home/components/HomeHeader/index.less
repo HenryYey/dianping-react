@@ -1,0 +1,50 @@
+@base-color: #f63;
+@images: '../../../../images';
+.header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: @base-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.search-box {
+  @media (max-width:524px){
+    width: 50%;
+  }
+  @media (min-width:525px){
+    width: 80%;
+  }
+  margin: 0 10px;
+  padding-left: 36px;
+  border: none;
+  border-radius: 30px;
+  height: 28px;
+}
+
+.self {
+  width: 32px;
+  height: 32px;
+  background-size: 100%;
+  background: url("@{images}/people.png");
+}
+.local {
+  color: white;
+  font-size: 14px;
+  margin-right: 15px;
+  min-width: 36px;
+  font-weight: 100;
+}
+.search-icon {
+  background: url("@{images}/search.png");
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+  margin-right: -40px;
+}

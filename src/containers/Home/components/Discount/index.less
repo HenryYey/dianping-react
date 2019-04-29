@@ -1,0 +1,60 @@
+@base-color: #f63;
+@images: '../../../../images';
+@line: 8px solid #f1f1f1;
+.card {
+  width: 100%;
+  border-bottom: @line;
+  border-top: @line;
+}
+.shop-box {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.shop {
+  margin-top: 15px;
+  font-size: 14px;
+  width: 28%;
+  margin-left: (100%-28*3%)/3;
+}
+.currentPrice {
+  margin-right: 5px;
+  font-size: 18px;
+  color: @base-color;
+}
+del {
+  color: #a7a7a7;
+  font-size: 14px;
+}
+.picture {
+  vertical-align: middle;
+  width: 100%;
+}
+.title-box {
+  line-height: 28px;
+  display: block;
+  width: 100%;
+}
+.title-first {
+  font-size: 21px;
+  margin-left: 15px;
+  float: left;
+  color: @base-color;
+}
+.title-second {
+  font-size: 14px;
+  float: right;
+  color: #acacac;
+  vertical-align: middle;
+}
+.enter {
+  margin-right: 15px;
+  width: 21px;
+  height: 26px;
+  float: right;
+  background-size: 100%;
+  background: url("@{images}/enter.png");
+  background-repeat: no-repeat;
+}
