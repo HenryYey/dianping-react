@@ -1,40 +1,45 @@
-import React, { Component } from 'react'
-import './index.less';
-// import http from '../../utils/http'
-import { bindActionCreators } from "redux"
-import { connect } from "react-redux"
-import ErrorToast from "../../components/ErrorToast"
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import { connect } from "react-redux";
+import ErrorToast from "../../components/ErrorToast";
+import { actions as appActions, getError } from "../../redux/reducers/app";
 import Home from '../Home'
-import { actions as appActions, getError } from "../../redux/modules/app"
+import Me from '../Me'
 
 class App extends Component {
   render() {
     const {
       error,
       appActions: { clearError }
-    } = this.props
+    } = this.props;
     return (
       <div className="App">
+        <Router>
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/me" exact component={Me} />
+          </Switch>
+        </Router>  
         {error ? <ErrorToast msg={error} clearError={clearError} /> : null}
-        <Home/>
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state, props) => {
   return {
     error: getError(state)
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     appActions: bindActionCreators(appActions, dispatch)
-  }
-}
+  };
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App)
+)(App);

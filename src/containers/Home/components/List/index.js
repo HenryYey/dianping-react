@@ -113,18 +113,21 @@ export default class List extends Component {
      */
     {
       // 延迟效果
-      const NowData =data.concat(dataSource)
-      const NowLoadTimes = this.state.loadTimes+1
-      setTimeout(() => {
-        this.setState({
-          data:NowData,
-          loadTimes: NowLoadTimes
-        })
-      }, 1000);
+      // const NowData =data.concat(dataSource)
+      // const NowLoadTimes = this.state.loadTimes+1
+      // setTimeout(() => {
+      //   this.setState({
+      //     data:NowData,
+      //     loadTimes: NowLoadTimes
+      //   })
+      // }, 1000);
+      this.props.getLikes()
     }
   }
 
   render() {
+    const {data2} = this.props 
+    console.log(data2)
     let data = this.state.data
     let loadTimes = this.state.loadTimes
     return (

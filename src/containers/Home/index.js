@@ -10,17 +10,14 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
 // 加载actions
-import {
-  actions,
-  getLikes,
-  getDiscounts,
-} from "../../redux/modules/home";
+import  *as HomeActions  from "../../redux/actions/home";
+
 class Home extends Component {
   componentDidMount() {
-    this.props.actions.getDiscounts();
+    // this.props.HomeActions.getDiscounts();
   }
-  loadMore() {
-    this.props.actions.getLikes()
+  loadMore = () => {
+    this.props.HomeActions.getLikes()
   }
   render() {
     const {likes, discounts} = this.props
@@ -31,22 +28,23 @@ class Home extends Component {
         <Headline/>
         <Category/>
         <Discount  data = {discounts}/>
-        <List  data = {likes} getLikes={this.loadMore}/>
+        <List  data2 = {likes} getLikes={this.loadMore}/>
         <Footer />
       </div>
     );
   }
 }
+
 const mapStateToProps = (state, props) => {
   return {
-    likes: actions.getLikes(state),
-    discounts: actions.getDiscounts(state),
+    likes: state.home.likes,
+    discounts: state.home.discounts,
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    HomeActions: bindActionCreators(HomeActions, dispatch)
   }
 }
 

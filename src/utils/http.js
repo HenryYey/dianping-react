@@ -8,10 +8,10 @@ let qs = require('querystring')
 let root = process.env.NODE_ENV === 'development'
   // 开发环境api接口
   ?
-  `http://localhost:3001/api`
+  `http://localhost:5000/api`
   // 生产环境api接口
   :
-  `http://127.0.0.1:3001/api`;
+  `http://127.0.0.1:5000/api`;
 // 引用axios，设置头文件
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
